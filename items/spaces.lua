@@ -42,7 +42,7 @@ for i, workspace in ipairs(workspaces) do
 		padding_left = 1,
 		background = {
 			color = settings.items.colors.background,
-			border_width = 0,
+			border_width = selected and 1 or 0, -- 変更箇所
 			height = settings.items.height,
 			border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
 		},
@@ -112,6 +112,7 @@ for i, workspace in ipairs(workspaces) do
 				highlight = selected,
 			},
 			background = {
+				border_width = selected and 1 or 0, -- 変更箇所
 				border_color = selected and settings.items.highlight_color(i) or settings.items.default_color(i),
 			},
 		})
