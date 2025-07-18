@@ -45,6 +45,9 @@ Temporary Items
 
 # Development tools
 .aider*
+CLAUDE.md
+.claude*
+.textlint*
 
 # SketchyBar specific
 # Keep source code and configuration files, ignore compiled outputs
