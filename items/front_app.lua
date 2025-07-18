@@ -1,6 +1,5 @@
 local colors = require("colors")
 local settings = require("settings")
-local app_icons = require("helpers.app_icons")
 
 local front_app = sbar.add("item", "front_app", {
 	display = "active",
@@ -8,20 +7,17 @@ local front_app = sbar.add("item", "front_app", {
 		drawing = false,
 	},
 	label = {
-		font = settings.icons,
+		font = settings.font,
 		padding_right = settings.items.padding.right,
+		width = 100,
 	},
 	updates = true,
 })
 
 front_app:subscribe("front_app_switched", function(env)
-	local icon = app_icons[env.INFO] or app_icons.default
 	front_app:set({
 		label = {
-			string = icon,
-			font = {
-				size = 15.0,
-			},
+			string = env.INFO,
 		},
 	})
 end)

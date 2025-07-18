@@ -1,0 +1,50 @@
+# Compiled binaries
+helpers/event_providers/cpu_load/bin/
+helpers/event_providers/network_load/bin/
+helpers/menus/bin/
+*.o
+*.out
+*.exe
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Development tools
+.aider*
+
+# SketchyBar specific
+# Keep source code and configuration files, ignore compiled outputs

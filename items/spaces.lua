@@ -19,13 +19,15 @@ end
 for i, workspace in ipairs(workspaces) do
 	local selected = workspace == current_workspace
 	local space = sbar.add("item", "item." .. workspace, { -- item名をiからworkspace名に変更
+		position = "center",
 		icon = {
 			font = {
 				family = settings.font.numbers,
 			},
-			string = workspace, -- アイコンをiからworkspace名に変更
-			padding_left = settings.items.padding.left,
-			padding_right = settings.items.padding.left / 2,
+			-- string = workspace, -- アイコンをiからworkspace名に変更
+			string = tonumber(workspace) and workspace or "",
+			padding_left = tonumber(workspace) and settings.items.padding.left or 0,
+			padding_right = tonumber(workspace) and settings.items.padding.right / 2 or 0,
 			color = settings.items.default_color(i),
 			highlight_color = settings.items.highlight_color(i),
 			highlight = selected,
@@ -71,7 +73,9 @@ for i, workspace in ipairs(workspaces) do
 			end
 
 			if no_app then
-				icon_line = " —"
+				-- icon_line = " —"
+				-- if no app, change the padding to 0
+				icon_line = ""
 			end
 
 			sbar.animate("tanh", 10, function()
@@ -84,6 +88,7 @@ for i, workspace in ipairs(workspaces) do
 
 	-- Padding space between each item
 	sbar.add("item", "item." .. workspace .. "padding", { -- item名をiからworkspace名に変更
+		position = "center",
 		script = "",
 		width = settings.items.gap,
 	})
@@ -152,6 +157,7 @@ local space_window_observer = sbar.add("item", {
 
 -- Handles the small icon indicator for spaces / menus changes
 local spaces_indicator = sbar.add("item", {
+	position = "center",
 	padding_left = -3,
 	padding_right = 0,
 	icon = {
@@ -190,7 +196,7 @@ space_window_observer:subscribe("space_windows_change", function(env)
 				end
 
 				if no_app then
-					icon_line = " —"
+					icon_line = ""
 				end
 
 				sbar.animate("tanh", 10, function()
@@ -219,7 +225,7 @@ space_window_observer:subscribe("aerospace_focus_change", function(env)
 				end
 
 				if no_app then
-					icon_line = " —"
+					icon_line = ""
 				end
 
 				sbar.animate("tanh", 10, function()
